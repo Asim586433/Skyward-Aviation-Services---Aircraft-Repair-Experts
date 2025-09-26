@@ -29,6 +29,9 @@
             line-height: 1.6;
             color: var(--dark-gray);
             background-color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         h1, h2, h3, h4 {
@@ -94,6 +97,17 @@
         .btn:hover {
             background-color: var(--primary-blue);
             transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-blue);
+            color: var(--secondary-blue);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-blue);
+            color: var(--white);
         }
 
         /* Header Styles */
@@ -173,6 +187,16 @@
             color: var(--primary-blue);
         }
 
+        /* Page Sections */
+        .page-section {
+            display: none;
+            padding: 4rem 0;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(30, 58, 138, 0.8), rgba(30, 58, 138, 0.8)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600"><rect width="1200" height="600" fill="%231e3a8a"/><text x="50%" y="50%" font-family="Arial" font-size="24" fill="%23ffffff" text-anchor="middle">Aircraft Repair Hero Image</text></svg>');
@@ -197,7 +221,6 @@
 
         /* Services Section */
         .services {
-            padding: 4rem 0;
             background-color: var(--light-gray);
         }
 
@@ -214,6 +237,7 @@
             padding: 2rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
         }
 
         .service-card:hover {
@@ -228,10 +252,6 @@
         }
 
         /* About Section */
-        .about {
-            padding: 4rem 0;
-        }
-
         .about-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -247,7 +267,6 @@
 
         /* Testimonials Section */
         .testimonials {
-            padding: 4rem 0;
             background-color: var(--light-blue);
         }
 
@@ -276,10 +295,6 @@
         }
 
         /* Contact Section */
-        .contact {
-            padding: 4rem 0;
-        }
-
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -325,7 +340,8 @@
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 0.75rem;
             border: 1px solid var(--accent-silver);
@@ -334,7 +350,8 @@
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--secondary-blue);
         }
@@ -344,6 +361,7 @@
             background-color: var(--primary-blue);
             color: var(--white);
             padding: 3rem 0 1rem;
+            margin-top: auto;
         }
 
         .footer-content {
@@ -397,7 +415,61 @@
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* Page-specific styles */
+        /* Stats Section */
+        .stats {
+            padding: 4rem 0;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-choose {
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: var(--secondary-blue);
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Page Header */
         .page-header {
             background-color: var(--light-gray);
             padding: 3rem 0;
@@ -406,6 +478,62 @@
 
         .page-content {
             padding: 4rem 0;
+        }
+
+        /* Services Page Styles */
+        .service-detail {
+            margin-bottom: 3rem;
+        }
+
+        .service-detail h3 {
+            margin-top: 2rem;
+        }
+
+        /* About Page Styles */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .team-member {
+            text-align: center;
+            background-color: var(--light-gray);
+            padding: 2rem;
+            border-radius: 8px;
+        }
+
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            object-fit: cover;
+        }
+
+        /* Testimonials Page Styles */
+        .testimonial-full {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+
+        /* Quote Page Styles */
+        .quote-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
         }
 
         /* Responsive Design */
@@ -430,6 +558,11 @@
             nav ul {
                 flex-direction: column;
                 text-align: center;
+                display: none;
+            }
+            
+            nav ul.show {
+                display: flex;
             }
             
             nav ul li {
@@ -457,7 +590,14 @@
             }
             
             .services-grid,
-            .testimonials-grid {
+            .testimonials-grid,
+            .features-grid,
+            .stats-grid,
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
                 grid-template-columns: 1fr;
             }
         }
@@ -474,63 +614,120 @@
             <button class="mobile-menu-btn">☰</button>
             <nav>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="testimonials.html">Testimonials</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#" class="nav-link" data-page="home">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                    <li><a href="#" class="nav-link" data-page="about">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="testimonials">Testimonials</a></li>
+                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+                    <li><a href="#" class="btn nav-link" data-page="quote">Get a Quote</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content (Home Page) -->
-    <main>
+    <!-- Home Page -->
+    <section id="home" class="page-section active">
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <h1>Expert Aircraft Repair & Management Services</h1>
                 <p>At Skyward Aviation, we specialize in comprehensive aircraft repairs, part repairs, and management services to ensure your aircraft operates at peak performance and safety.</p>
-                <a href="contact.html" class="btn">Get a Quote</a>
+                <a href="#" class="btn nav-link" data-page="quote">Get a Quote</a>
+                <a href="#" class="btn btn-outline nav-link" data-page="services" style="margin-left: 1rem;">Learn More</a>
             </div>
         </section>
 
-        <!-- Services Preview Section -->
-        <section class="services">
+        <!-- Stats Section -->
+        <section class="stats">
             <div class="container">
-                <h2>Our Services</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon">🔧</div>
-                        <h3>Aircraft Repairs</h3>
-                        <p>Comprehensive repair services for all aircraft makes and models, from routine maintenance to complex structural repairs.</p>
-                        <a href="services.html#repairs">Learn More →</a>
+                <h2 style="color: white; border-color: white;">Why Choose Skyward Aviation</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years of Experience</div>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">⚙️</div>
-                        <h3>Part Repairs</h3>
-                        <p>Specialized repair services for aircraft components, ensuring compliance with all regulatory standards.</p>
-                        <a href="services.html#parts">Learn More →</a>
+                    <div class="stat-item">
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Aircraft Serviced</div>
                     </div>
-                    <div class="service-card">
-                        <div class="service-icon">📊</div>
-                        <h3>Aircraft Management</h3>
-                        <p>Complete management solutions including maintenance scheduling, compliance tracking, and operational support.</p>
-                        <a href="services.html#management">Learn More →</a>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Safety Record</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Preview Section -->
-        <section class="about">
+        <!-- Services Preview Section -->
+        <section class="services page-section">
             <div class="container">
+                <h2>Our Services</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">We offer comprehensive aircraft services to keep your fleet in optimal condition with the highest safety standards.</p>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Aircraft Repairs</h3>
+                        <p>Comprehensive repair services for all aircraft makes and models, from routine maintenance to complex structural repairs.</p>
+                        <a href="#" class="nav-link" data-page="services">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚙️</div>
+                        <h3>Part Repairs</h3>
+                        <p>Specialized repair services for aircraft components, ensuring compliance with all regulatory standards.</p>
+                        <a href="#" class="nav-link" data-page="services">Learn More →</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3>Aircraft Management</h3>
+                        <p>Complete management solutions including maintenance scheduling, compliance tracking, and operational support.</p>
+                        <a href="#" class="nav-link" data-page="services">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose">
+            <div class="container">
+                <h2>Why Choose Skyward Aviation</h2>
                 <div class="about-content">
                     <div>
-                        <h2>About Skyward Aviation</h2>
-                        <p>Founded in 2005, Skyward Aviation has established itself as a trusted partner for aircraft owners and operators worldwide. Our team of certified technicians and aviation experts brings decades of combined experience to every project.</p>
-                        <p>We pride ourselves on our commitment to safety, quality, and customer satisfaction, ensuring that every aircraft we service meets the highest standards of performance and reliability.</p>
-                        <a href="about.html" class="btn">Our Story</a>
+                        <p>At Skyward Aviation, we understand that your aircraft is a critical asset. That's why we go above and beyond to deliver exceptional service with uncompromising safety standards.</p>
+                        
+                        <div class="features-grid">
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div>
+                                    <h3>Certified Technicians</h3>
+                                    <p>Our team holds certifications from major aviation authorities worldwide.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div>
+                                    <h3>State-of-the-Art Facilities</h3>
+                                    <p>We operate from modern hangars equipped with the latest technology.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div>
+                                    <h3>Rapid Response</h3>
+                                    <p>24/7 emergency services to minimize your aircraft downtime.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">✓</div>
+                                <div>
+                                    <h3>Quality Assurance</h3>
+                                    <p>Rigorous testing and quality control for all repairs and services.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="about-image">
                         <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23e5e7eb'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%236b7280' text-anchor='middle'>Aircraft Hangar Image</text></svg>" alt="Skyward Aviation hangar facility">
@@ -543,6 +740,7 @@
         <section class="testimonials">
             <div class="container">
                 <h2>What Our Clients Say</h2>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">Don't just take our word for it. Here's what our clients have to say about our services.</p>
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <p class="testimonial-text">"Skyward Aviation handled our fleet's maintenance with exceptional professionalism. Their attention to detail and commitment to safety is unmatched."</p>
@@ -552,9 +750,13 @@
                         <p class="testimonial-text">"The turnaround time for our part repairs was impressive. They delivered quality work ahead of schedule, minimizing our aircraft downtime."</p>
                         <p class="testimonial-author">- Sarah Johnson, Operations Director</p>
                     </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Their 24/7 support has been invaluable for our operations. They're always available when we need them, day or night."</p>
+                        <p class="testimonial-author">- Michael Torres, Chief Pilot</p>
+                    </div>
                 </div>
                 <div style="text-align: center; margin-top: 2rem;">
-                    <a href="testimonials.html" class="btn">Read More Testimonials</a>
+                    <a href="#" class="btn nav-link" data-page="testimonials">Read More Testimonials</a>
                 </div>
             </div>
         </section>
@@ -570,6 +772,9 @@
                             <p><span class="contact-icon">📞</span> (555) 123-4567</p>
                             <p><span class="contact-icon">✉️</span> info@skywardaviation.com</p>
                             <p><span class="contact-icon">📍</span> 123 Aviation Way, Hangar 45, Airport City, AC 12345</p>
+                            <p><span class="contact-icon">🕒</span> Monday-Friday: 7:00 AM - 7:00 PM</p>
+                            <p><span class="contact-icon">🕒</span> Saturday: 8:00 AM - 4:00 PM</p>
+                            <p><span class="contact-icon">🕒</span> Emergency Services: 24/7</p>
                         </div>
                     </div>
                     <div class="contact-form">
@@ -589,6 +794,249 @@
                             </div>
                             <div class="form-group">
                                 <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your aircraft service needs..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Services Page -->
+    <section id="services" class="page-section">
+        <section class="page-header">
+            <div class="container">
+                <h1>Our Services</h1>
+                <p>Comprehensive aircraft services to keep your fleet in optimal condition</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="service-detail" id="repairs">
+                    <h2>Aircraft Repairs</h2>
+                    <p>Our comprehensive aircraft repair services cover all aspects of maintenance and repair for commercial, private, and military aircraft. With state-of-the-art facilities and certified technicians, we ensure your aircraft meets all safety and performance standards.</p>
+                    
+                    <h3>Our Repair Capabilities</h3>
+                    <ul>
+                        <li>Structural repairs and modifications</li>
+                        <li>Engine maintenance and overhaul</li>
+                        <li>Avionics systems repair and upgrade</li>
+                        <li>Landing gear maintenance</li>
+                        <li>Composite material repairs</li>
+                        <li>Corrosion prevention and treatment</li>
+                    </ul>
+                    
+                    <h3>Certifications</h3>
+                    <p>We hold certifications from major aviation authorities including FAA, EASA, and Transport Canada, ensuring our work meets the highest international standards.</p>
+                </div>
+                
+                <div class="service-detail" id="parts">
+                    <h2>Part Repairs</h2>
+                    <p>Our part repair services extend the life of your aircraft components while maintaining the highest safety standards. We specialize in repairing a wide range of aircraft parts, from simple components to complex systems.</p>
+                    
+                    <h3>Part Repair Services</h3>
+                    <ul>
+                        <li>Hydraulic component repair</li>
+                        <li>Pneumatic system components</li>
+                        <li>Electrical system parts</li>
+                        <li>Flight control components</li>
+                        <li>Instrumentation and gauges</li>
+                        <li>Fuel system components</li>
+                    </ul>
+                    
+                    <h3>Quality Assurance</h3>
+                    <p>All repaired parts undergo rigorous testing and quality control procedures to ensure they meet or exceed original equipment manufacturer specifications.</p>
+                </div>
+                
+                <div class="service-detail" id="management">
+                    <h2>Aircraft Management</h2>
+                    <p>Our aircraft management services provide comprehensive support for aircraft owners and operators, handling all aspects of aircraft operation to maximize efficiency and safety.</p>
+                    
+                    <h3>Management Services</h3>
+                    <ul>
+                        <li>Maintenance planning and scheduling</li>
+                        <li>Regulatory compliance management</li>
+                        <li>Crew scheduling and management</li>
+                        <li>Fuel management and optimization</li>
+                        <li>Insurance and documentation handling</li>
+                        <li>24/7 operational support</li>
+                    </ul>
+                    
+                    <h3>Benefits</h3>
+                    <p>By entrusting your aircraft management to us, you benefit from reduced operational costs, improved aircraft utilization, and peace of mind knowing that all aspects of your aircraft operation are handled by experts.</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" class="btn nav-link" data-page="quote">Request Service Quote</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <section class="page-header">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Learn about our history, mission, and the team behind Skyward Aviation</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="about-content">
+                    <div>
+                        <h2>Our Story</h2>
+                        <p>Founded in 2005 by aviation industry veterans, Skyward Aviation began as a small maintenance facility with a big vision: to provide exceptional aircraft services with uncompromising safety standards.</p>
+                        <p>Over the years, we've grown into a full-service aviation company with facilities spanning three hangars and a team of over 50 certified professionals. Our commitment to quality and customer satisfaction has made us a trusted partner for aircraft owners and operators worldwide.</p>
+                        
+                        <h2>Our Mission</h2>
+                        <p>To provide comprehensive, reliable, and efficient aircraft services that exceed our clients' expectations while maintaining the highest standards of safety and professionalism.</p>
+                        
+                        <h2>Our Values</h2>
+                        <ul>
+                            <li><strong>Safety First:</strong> Nothing is more important than the safety of our clients, team, and the flying public.</li>
+                            <li><strong>Quality Excellence:</strong> We're committed to delivering work that meets or exceeds industry standards.</li>
+                            <li><strong>Customer Focus:</strong> We build lasting relationships by understanding and responding to our clients' needs.</li>
+                            <li><strong>Innovation:</strong> We continuously invest in technology and training to improve our services.</li>
+                            <li><strong>Integrity:</strong> We conduct our business with honesty, transparency, and ethical practices.</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='400' viewBox='0 0 600 400'><rect width='600' height='400' fill='%23e5e7eb'/><text x='50%' y='50%' font-family='Arial' font-size='24' fill='%236b7280' text-anchor='middle'>Our Facility</text></svg>" alt="Skyward Aviation facility">
+                    </div>
+                </div>
+                
+                <h2 style="margin-top: 4rem;">Our Leadership Team</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'><circle cx='75' cy='75' r='75' fill='%23dbeafe'/><text x='50%' y='50%' font-family='Arial' font-size='16' fill='%23374851' text-anchor='middle' dominant-baseline='middle'>CEO Photo</text></svg>" alt="John Smith">
+                        <h3>John Smith</h3>
+                        <p>Chief Executive Officer</p>
+                        <p>With over 25 years in the aviation industry, John founded Skyward Aviation with a vision to create a customer-focused service provider.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'><circle cx='75' cy='75' r='75' fill='%23dbeafe'/><text x='50%' y='50%' font-family='Arial' font-size='16' fill='%23374851' text-anchor='middle' dominant-baseline='middle'>COO Photo</text></svg>" alt="Maria Rodriguez">
+                        <h3>Maria Rodriguez</h3>
+                        <p>Chief Operations Officer</p>
+                        <p>Maria brings 20 years of operational experience from major airlines, ensuring our processes are efficient and effective.</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'><circle cx='75' cy='75' r='75' fill='%23dbeafe'/><text x='50%' y='50%' font-family='Arial' font-size='16' fill='%23374851' text-anchor='middle' dominant-baseline='middle'>CTO Photo</text></svg>" alt="David Chen">
+                        <h3>David Chen</h3>
+                        <p>Chief Technical Officer</p>
+                        <p>David oversees all technical operations with his extensive background in aircraft engineering and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Testimonials Page -->
+    <section id="testimonials" class="page-section">
+        <section class="page-header">
+            <div class="container">
+                <h1>Customer Testimonials</h1>
+                <p>See what our clients have to say about our services</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="testimonial-full">
+                    <p class="testimonial-text">"Skyward Aviation has been our go-to maintenance provider for over five years. Their team's expertise and attention to detail have kept our fleet operating safely and efficiently. Their proactive maintenance approach has significantly reduced our unscheduled downtime."</p>
+                    <p class="testimonial-author">- Michael Thompson, Director of Operations, AeroLink Airlines</p>
+                </div>
+                
+                <div class="testimonial-full">
+                    <p class="testimonial-text">"The part repair services at Skyward Aviation are exceptional. They repaired a critical component for us that other shops said needed replacement. Their solution saved us over $50,000 and got our aircraft back in service a week ahead of schedule."</p>
+                    <p class="testimonial-author">- Jennifer Williams, Chief Engineer, SkyHigh Charters</p>
+                </div>
+                
+                <div class="testimonial-full">
+                    <p class="testimonial-text">"As a private aircraft owner, I appreciate the personalized service from Skyward Aviation. They handle everything from routine maintenance to complex repairs with professionalism and transparency. I trust them completely with my aircraft."</p>
+                    <p class="testimonial-author">- Robert Johnson, Private Aircraft Owner</p>
+                </div>
+                
+                <div class="testimonial-full">
+                    <p class="testimonial-text">"Their aircraft management services have transformed our operation. Skyward Aviation handles all aspects of our aircraft maintenance, scheduling, and compliance, allowing us to focus on our core business. Their 24/7 support gives us peace of mind."</p>
+                    <p class="testimonial-author">- Sarah Miller, CEO, Global Business Solutions</p>
+                </div>
+                
+                <div class="testimonial-full">
+                    <p class="testimonial-text">"During an emergency situation, Skyward Aviation went above and beyond to get our aircraft repaired and back in service. Their team worked around the clock and coordinated with multiple vendors to minimize our downtime. Their commitment to customer service is outstanding."</p>
+                    <p class="testimonial-author">- James Wilson, Operations Manager, Express Cargo</p>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#" class="btn nav-link" data-page="contact">Share Your Experience</a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team for all your aircraft service needs</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h2>Get In Touch</h2>
+                        <p>Our team is ready to assist you with all your aircraft service requirements. Contact us using the information below or fill out the form.</p>
+                        <div class="contact-details">
+                            <p><span class="contact-icon">📞</span> (555) 123-4567</p>
+                            <p><span class="contact-icon">✉️</span> info@skywardaviation.com</p>
+                            <p><span class="contact-icon">📍</span> 123 Aviation Way, Hangar 45, Airport City, AC 12345</p>
+                            <p><span class="contact-icon">🕒</span> Monday-Friday: 7:00 AM - 7:00 PM</p>
+                            <p><span class="contact-icon">🕒</span> Saturday: 8:00 AM - 4:00 PM</p>
+                            <p><span class="contact-icon">🕒</span> Emergency Services: 24/7</p>
+                        </div>
+                        
+                        <h3>Our Facilities</h3>
+                        <p>We operate from three modern hangars equipped with the latest technology and staffed by certified professionals. Our facilities include:</p>
+                        <ul>
+                            <li>Hangar 1: General maintenance and repairs</li>
+                            <li>Hangar 2: Avionics and electrical systems</li>
+                            <li>Hangar 3: Engine maintenance and overhaul</li>
+                        </ul>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactFormPage">
+                            <div class="form-group">
+                                <label for="name">Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="repairs">Aircraft Repairs</option>
+                                    <option value="parts">Part Repairs</option>
+                                    <option value="management">Aircraft Management</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
                             <button type="submit" class="btn">Send Message</button>
@@ -597,7 +1045,112 @@
                 </div>
             </div>
         </section>
-    </main>
+    </section>
+
+    <!-- Quote Page -->
+    <section id="quote" class="page-section">
+        <section class="page-header">
+            <div class="container">
+                <h1>Get a Quote</h1>
+                <p>Request a customized quote for your aircraft service needs</p>
+            </div>
+        </section>
+        
+        <section class="page-content">
+            <div class="container">
+                <div class="quote-form">
+                    <h2>Service Quote Request</h2>
+                    <p>Please fill out the form below with details about your aircraft service requirements. Our team will review your request and provide a customized quote within 24 hours.</p>
+                    
+                    <form id="quoteForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="q-name">Full Name *</label>
+                                <input type="text" id="q-name" name="q-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="q-company">Company</label>
+                                <input type="text" id="q-company" name="q-company">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="q-email">Email Address *</label>
+                                <input type="email" id="q-email" name="q-email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="q-phone">Phone Number *</label>
+                                <input type="tel" id="q-phone" name="q-phone" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="q-service">Service Type *</label>
+                            <select id="q-service" name="q-service" required>
+                                <option value="">Select a service</option>
+                                <option value="repairs">Aircraft Repairs</option>
+                                <option value="parts">Part Repairs</option>
+                                <option value="management">Aircraft Management</option>
+                                <option value="consultation">Consultation</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="q-aircraft">Aircraft Information</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <input type="text" id="q-make" name="q-make" placeholder="Make">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="q-model" name="q-model" placeholder="Model">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" id="q-year" name="q-year" placeholder="Year">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="q-description">Service Description *</label>
+                            <textarea id="q-description" name="q-description" rows="5" placeholder="Please describe the service you require in detail" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="q-urgency">Urgency</label>
+                            <select id="q-urgency" name="q-urgency">
+                                <option value="routine">Routine (1-2 weeks)</option>
+                                <option value="soon">Soon (3-7 days)</option>
+                                <option value="urgent">Urgent (1-2 days)</option>
+                                <option value="emergency">Emergency (ASAP)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="q-newsletter" name="q-newsletter">
+                                Sign up for our newsletter with maintenance tips and industry updates
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Request Quote</button>
+                    </form>
+                </div>
+                
+                <div style="margin-top: 3rem; text-align: center;">
+                    <h3>What Happens Next?</h3>
+                    <p>After submitting your quote request, our team will:</p>
+                    <ol style="text-align: left; max-width: 600px; margin: 1rem auto;">
+                        <li>Review your requirements within 24 hours</li>
+                        <li>Contact you to clarify any details if needed</li>
+                        <li>Provide a detailed quote with timeline and cost estimate</li>
+                        <li>Schedule your service at your convenience</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -614,11 +1167,11 @@
                 </div>
                 <div class="footer-section">
                     <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="services.html">Services</a>
-                    <a href="about.html">About Us</a>
-                    <a href="testimonials.html">Testimonials</a>
-                    <a href="contact.html">Contact</a>
+                    <a href="#" class="nav-link" data-page="home">Home</a>
+                    <a href="#" class="nav-link" data-page="services">Services</a>
+                    <a href="#" class="nav-link" data-page="about">About Us</a>
+                    <a href="#" class="nav-link" data-page="testimonials">Testimonials</a>
+                    <a href="#" class="nav-link" data-page="contact">Contact</a>
                 </div>
                 <div class="footer-section">
                     <h3>Contact Info</h3>
@@ -629,32 +1182,100 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Skyward Aviation Services. All rights reserved.</p>
+                <p>&copy; 2025 Skyward Aviation Services. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('show');
-        });
-
-        // Form validation
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Page Navigation System
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all navigation links
+            const navLinks = document.querySelectorAll('.nav-link');
             
-            // Basic validation
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-            } else {
-                alert('Please fill in all required fields.');
+            // Function to show a specific page
+            function showPage(pageId) {
+                // Hide all pages
+                document.querySelectorAll('.page-section').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // Show the selected page
+                document.getElementById(pageId).classList.add('active');
+                
+                // Update page title
+                updatePageTitle(pageId);
+                
+                // Scroll to top of page
+                window.scrollTo(0, 0);
             }
+            
+            // Function to update page title
+            function updatePageTitle(pageId) {
+                const titles = {
+                    "home": "Skyward Aviation Services | Aircraft Repair Experts",
+                    "services": "Our Services - Skyward Aviation",
+                    "about": "About Us - Skyward Aviation",
+                    "testimonials": "Testimonials - Skyward Aviation",
+                    "contact": "Contact Us - Skyward Aviation",
+                    "quote": "Get a Quote - Skyward Aviation"
+                };
+                
+                if (titles[pageId]) {
+                    document.title = titles[pageId];
+                }
+            }
+            
+            // Add click event listeners to all navigation links
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const pageId = this.getAttribute('data-page');
+                    showPage(pageId);
+                    
+                    // Close mobile menu if open
+                    document.querySelector('nav ul').classList.remove('show');
+                });
+            });
+            
+            // Mobile menu toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    document.querySelector('nav ul').classList.toggle('show');
+                });
+            }
+            
+            // Form validation for all forms
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Basic validation
+                    const requiredFields = form.querySelectorAll('[required]');
+                    let valid = true;
+                    
+                    requiredFields.forEach(field => {
+                        if (!field.value.trim()) {
+                            valid = false;
+                            field.style.borderColor = 'red';
+                        } else {
+                            field.style.borderColor = '';
+                        }
+                    });
+                    
+                    if (valid) {
+                        alert('Thank you for your message! We will get back to you soon.');
+                        form.reset();
+                    } else {
+                        alert('Please fill in all required fields.');
+                    }
+                });
+            });
+            
+            // Show home page by default
+            showPage('home');
         });
     </script>
 </body>
